@@ -116,7 +116,7 @@ class ScriptableObjectBrowser : EditorWindow
 	}
 
 	/// <summary>
-	/// Draws a scroll view list of Buttons for each ScriptableObject asset file of selected type. 
+	/// Draws a scroll view list of Buttons for each ScriptableObject asset file of selected type.
 	/// </summary>
 	private void DrawAssetButtons()
 	{
