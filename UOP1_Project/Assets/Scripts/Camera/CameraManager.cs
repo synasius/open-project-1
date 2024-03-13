@@ -1,6 +1,6 @@
 ﻿using System;
 using UnityEngine;
-using Cinemachine;
+using Unity.Cinemachine;
 using System.Collections;
 
 public class CameraManager : MonoBehaviour
@@ -11,7 +11,7 @@ public class CameraManager : MonoBehaviour
 	public CinemachineImpulseSource impulseSource;
 	private bool _isRMBPressed;
 
-	[SerializeField][Range(.5f, 3f)] private float _speedMultiplier = 1f; //TODO: make this modifiable in the game settings											
+	[SerializeField][Range(.5f, 3f)] private float _speedMultiplier = 1f; //TODO: make this modifiable in the game settings
 	[SerializeField] private TransformAnchor _cameraTransformAnchor = default;
 	[SerializeField] private TransformAnchor _protagonistTransformAnchor = default;
 

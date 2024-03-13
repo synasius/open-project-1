@@ -43,7 +43,7 @@ public class QuestEditorWindow : EditorWindow
 		// Sets a minimum size to the window.
 		window.minSize = new Vector2(250, 250);
 
-		//window.SetTool(); 
+		//window.SetTool();
 	}
 
 	public void CreateGUI()
@@ -158,7 +158,7 @@ public class QuestEditorWindow : EditorWindow
 		FindAllSOByType(out QuestlineSO[] questLineSOs);
 		RefreshListView(out ListView allQuestlinesListView, "questlines-list", questLineSOs);
 		ClearElements(SelectionType.Questline);
-		allQuestlinesListView.onSelectionChange += (questlineEnumerable) =>
+		allQuestlinesListView.selectionChanged += (questlineEnumerable) =>
 		{
 			_currentSelectedQuestLine = GetDataFromListViewItem<QuestlineSO>(questlineEnumerable);
 			ClearElements(SelectionType.Questline);
@@ -168,7 +168,7 @@ public class QuestEditorWindow : EditorWindow
 			{
 				RefreshListView(out ListView allQuestsListView, "quests-list", _currentSelectedQuestLine.Quests.ToArray());
 
-				allQuestsListView.onSelectionChange += (questEnumerable) =>
+				allQuestsListView.selectionChanged += (questEnumerable) =>
 				{
 					_idQuestSelected = allQuestsListView.selectedIndex;
 
@@ -180,7 +180,7 @@ public class QuestEditorWindow : EditorWindow
 
 						SetUpQuestPreview(_currentSeletedQuest);
 
-						allStepsListView.onSelectionChange += (stepEnumerable) =>
+						allStepsListView.selectionChanged += (stepEnumerable) =>
 						{
 							_idStepSelected = allStepsListView.selectedIndex;
 							_currentSelectedStep = GetDataFromListViewItem<StepSO>(stepEnumerable);
@@ -193,7 +193,7 @@ public class QuestEditorWindow : EditorWindow
 
 								RefreshListView(out ListView dialoguesListView, "dialogues-list", dialogueDataSOs);
 
-								dialoguesListView.onSelectionChange += (dialogueEnumerable) =>
+								dialoguesListView.selectionChanged += (dialogueEnumerable) =>
 								{
 
 
@@ -304,7 +304,7 @@ public class QuestEditorWindow : EditorWindow
 		AssetDatabase.SaveAssets();
 		_currentSelectedStep.DialogueBeforeStep = asset;
 		asset.DialogueType = DialogueType.StartDialogue;
-		//	asset.CreateLine(); 
+		//	asset.CreateLine();
 		rootVisualElement.Q<VisualElement>("steps-list").Q<ListView>().SetSelection(_idStepSelected);
 	}
 
@@ -477,7 +477,7 @@ public class QuestEditorWindow : EditorWindow
 			}
 		};
 		listview.itemsSource = itemsSource;
-		listview.itemHeight = 16;
+		listview.fixedItemHeight = 16;
 		listview.selectionType = UnityEngine.UIElements.SelectionType.Single;
 		listview.style.flexGrow = 1.0f;
 
