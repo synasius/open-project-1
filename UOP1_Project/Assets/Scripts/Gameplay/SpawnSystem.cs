@@ -19,7 +19,7 @@ public class SpawnSystem : MonoBehaviour
 
 	private void Awake()
 	{
-		_spawnLocations = GameObject.FindObjectsOfType<LocationEntrance>();
+		_spawnLocations = FindObjectsByType<LocationEntrance>(FindObjectsSortMode.None);
 		_defaultSpawnPoint = transform.GetChild(0);
 	}
 
